@@ -57,7 +57,25 @@ User.generateAward = function(user){
 
 }
 
+User.updateUserFromRequestBody = function(user, mentor){
 
+}
+
+User.findAllMentors = function(){
+  return User.findAndCountAll({
+    include: [
+    {model: Award}
+    ],
+    where: {
+      count : 2
+    }
+  })
+}
+
+// User.findAllMentors()
+//   .then(function(result){
+//     console.log(result);
+//   });
 
 module.exports = {
   Award,

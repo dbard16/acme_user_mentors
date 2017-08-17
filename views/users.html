@@ -12,14 +12,18 @@
   </div>
 
   {% for viewModel in viewModel %}
-  <div class='well users'>
+  <div class='users'>
     <ul>
       <li>
+      <div class='panel panel-info'>
+        <div class='panel-heading'>
         {{ viewModel.name }} - {{viewModel.awards.length}} Awards!
 
         <form action="/users/{{ viewModel.id}}?_method=DELETE" method="POST"?>
           <button class = "btn btn-danger"> Delete User</button>
         </form>
+        </div>
+        <div class='panel-body'>
         <form action="/users/{{ viewModel.id}}/awards" method="POST"?>
           <button class = "btn btn-primary btn-sm"> Add Award </button>
         </form>
@@ -33,6 +37,11 @@
             </li>
           </ul>
         {% endfor %}
+        {% if viewModel.awards.length > 1 %}
+          Can be a mentor
+        {% endif %}
+        </div>
+        </div>
       </li>
     </ul>
   </div>

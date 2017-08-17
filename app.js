@@ -28,7 +28,7 @@ app.get('/', (req, res, next)=>{
 
 app.use('/users', routes);
 
-//aaa
+//aa
 
 // app.listen(port,()=>{
 //   console.log(`server listening on port ${port}`);
@@ -55,6 +55,8 @@ models.db.sync({force: true})
       console.log(`server listening on port ${port}`);
     })
   })
+
+
 
 
 // app.use(function(err, req, res, next){
