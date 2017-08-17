@@ -10,6 +10,8 @@ var port = process.env.PORT || 3000;
 const routes = require('./routes/users.js');
 
 app.use('/vendor', express.static(path.join((__dirname, 'node_modules'))));
+app.use(express.static(path.join(__dirname, './public')))
+
 
 nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');

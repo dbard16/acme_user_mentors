@@ -12,11 +12,10 @@
   </div>
 
   {% for viewModel in viewModel %}
-  <div class='well'>
+  <div class='well users'>
     <ul>
       <li>
-        {{ viewModel.name }}
-        {{ viewModel.awards.length }}
+        {{ viewModel.name }} - {{viewModel.awards.length}} Awards!
 
         <form action="/users/{{ viewModel.id}}?_method=DELETE" method="POST"?>
           <button class = "btn btn-danger"> Delete User</button>

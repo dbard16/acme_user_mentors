@@ -23,6 +23,8 @@ const User = db.define('user',{
 
 Award.belongsTo(User);
 User.hasMany(Award);
+User.belongsTo(User, {as: 'mentor'});
+User.hasMany(User, {as: 'mentees', foreignKey: 'mentorId'});
 
 User.findUsersViewModel = function(){
   return User.findAll({
