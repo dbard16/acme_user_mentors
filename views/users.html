@@ -1,0 +1,45 @@
+{%extends "layout.html" %}
+
+{% block content %}
+  <div class='well'>
+    <form action="/users" method="POST" />
+      <div class='form-group'>
+        <input class='form-control' name='name' placeholder='name' >
+        <br>
+        <button class = "btn btn-primary"> Add </button>
+      </div>
+    </form>
+  </div>
+
+  {% for viewModel in viewModel %}
+  <div class='well'>
+    <ul>
+      <li>
+        {{ viewModel.name }}
+        {{ viewModel.awards.length }}
+
+        <form action="/users/{{ viewModel.id}}?_method=DELETE" method="POST"?>
+          <button class = "btn btn-danger"> Delete User</button>
+        </form>
+        <form action="/users/{{ viewModel.id}}/awards" method="POST"?>
+          <button class = "btn btn-primary btn-sm"> Add Award </button>
+        </form>
+        {% for awards in viewModel.awards %}
+          <ul>
+            <li>
+              {{awards.name}}
+              <form action="/users/{{ viewModel.id}}/awards/{{ awards.id}}?_method=DELETE" method="POST"?>
+                <button class = "btn btn-danger btn-sm"> Delete Award</button>
+              </form>
+            </li>
+          </ul>
+        {% endfor %}
+      </li>
+    </ul>
+  </div>
+  {% endfor %}
+
+
+
+
+{% endblock %}
